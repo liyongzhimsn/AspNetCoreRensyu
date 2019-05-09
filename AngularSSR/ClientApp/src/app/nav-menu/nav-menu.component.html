@@ -1,0 +1,30 @@
+<header>
+  <mat-toolbar class="app-toolbar" color="primary">
+    <div fxShow="true" fxHide.gt-sm="true">
+      <div fxShow="true" fxHide.gt-sm="true">
+        <button mat-icon-button (click)="sidenav.toggle()">
+          <mat-icon>menu</mat-icon>
+        </button>
+      </div>
+    </div>
+    <a mat-button [routerLink]='["/"]'>
+      <span>AngularSSR</span>
+    </a>
+    <span></span>
+    <div fxShow="true" fxHide.lt-md="true">
+      <a mat-button [routerLink]='["/"]'>Home</a>
+    </div>
+  </mat-toolbar>
+  <mat-sidenav-container fxFlexFill>
+    <mat-sidenav #sidenav class="app-sidenav" color="primary" fxLayout="column" mode="over" opened="false" fxHide.gt-sm="true">
+      <mat-toolbar color="primary">Menu</mat-toolbar>
+      <mat-nav-list>
+        <a mat-list-item [routerLink]='["/"]'>Home</a>
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content fullscreen>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+
+</header>
